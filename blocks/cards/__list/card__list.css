@@ -1,4 +1,4 @@
-.card__items {
+.card__list {
   grid-template-rows: repeat(auto-fit, 1fr);
   grid-template-columns: repeat(3, 1fr);
   padding: 51px 200px 0 200px;
@@ -11,7 +11,7 @@
 }
 
 @media screen and (max-width: 1279px) {
-  .card__items {
+  .card__list {
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
     padding: 51px 0 0 0;
@@ -20,7 +20,7 @@
 }
 
 @media screen and (max-width: 1023px) {
-  .card__items {
+  .card__list {
     grid-template-columns: repeat(2, 1fr);
     padding: 36px 0 0 0;
     margin: 0;
@@ -28,7 +28,7 @@
 }
 
 @media screen and (max-width: 767px) {
-  .card__items {
+  .card__list {
     grid-template-columns: 1fr;
   }
 }
