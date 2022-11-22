@@ -1,154 +1,107 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="./images/favicon.ico" />
-    <link rel="stylesheet" href="./pages/index.css" />
-    <title>Mesto</title>
-  </head>
 
-  <body class="main">
-    <div class="page">
-      <header class="header">
-        <img
-          class="header__logo"
-          src="./images/logo.svg"
-          alt="Место (логотип)"
-        />
-      </header>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./images/favicon.ico">
+  <link rel="stylesheet" href="./pages/index.css">
+  <title>Mesto</title>
+</head>
 
-      <section class="profile">
-        <div class="profile__avatar">
-          <img
-            class="profile__avatar-image"
-            src="./images/avatar.png"
-            alt="аватар пользователя"
-          />
-        </div>
+<body class="main">
+  <div class="page">
+    <header class="header">
+      <img class="header__logo" src="./images/logo.svg" alt="Место (логотип)">
+    </header>
 
-        <div class="profile__info">
-          <h1 class="profile__name">Жак-Ив Кусто</h1>
-          <button class="profile__edit-button pointer" type="button"></button>
-          <p class="profile__job">Исследователь океана</p>
-        </div>
+    <section class="profile">
+      <div class="profile__avatar">
+        <img class="profile__avatar-image" src="./images/avatar.png" alt="аватар пользователя">
+      </div>
 
-        <button class="profile__add-button pointer" type="button"></button>
-      </section>
+      <div class="profile__info">
+        <h1 class="profile__name">Жак-Ив Кусто</h1>
+        <button class="profile__edit-button pointer" type="button"></button>
+        <p class="profile__job">Исследователь океана</p>
+      </div>
 
-      <section class="card" aria-label="Фотокарточки различных уголков планеты">
-        <ul class="card__list">
-          <li class="card__item">
-            <img
-              class="card__item-image"
-              src="./images/elbrus.png"
-              alt="Эльбрус"
-            />
-            <div class="card__item-description">
-              <h2 class="card__item-title">Гора Эльбрус</h2>
-              <button
-                class="card__item-like-button pointer"
-                type="button"
-              ></button>
-            </div>
-          </li>
-          <li class="card__item">
-            <img
-              class="card__item-image"
-              src="./images/karachaevsk.png"
-              alt="Карачаевск"
-            />
-            <div class="card__item-description">
-              <h2 class="card__item-title">Карачаевск</h2>
-              <button
-                class="card__item-like-button pointer"
-                type="button"
-              ></button>
-            </div>
-          </li>
-          <li class="card__item">
-            <img
-              class="card__item-image"
-              src="./images/dombai.png"
-              alt="Домбай"
-            />
-            <div class="card__item-description">
-              <h2 class="card__item-title">Домбай</h2>
-              <button
-                class="card__item-like-button pointer"
-                type="button"
-              ></button>
-            </div>
-          </li>
-          <li class="card__item">
-            <img
-              class="card__item-image"
-              src="./images/elbrus.png"
-              alt="Эльбрус"
-            />
-            <div class="card__item-description">
-              <h2 class="card__item-title">Гора Эльбрус</h2>
-              <button
-                class="card__item-like-button pointer"
-                type="button"
-              ></button>
-            </div>
-          </li>
-          <li class="card__item">
-            <img
-              class="card__item-image"
-              src="./images/elbrus.png"
-              alt="Эльбрус"
-            />
-            <div class="card__item-description">
-              <h2 class="card__item-title">Гора Эльбрус</h2>
-              <button
-                class="card__item-like-button pointer"
-                type="button"
-              ></button>
-            </div>
-          </li>
-          <li class="card__item">
-            <img
-              class="card__item-image"
-              src="./images/elbrus.png"
-              alt="Эльбрус"
-            />
-            <div class="card__item-description">
-              <h2 class="card__item-title">Гора Эльбрус</h2>
-              <button
-                class="card__item-like-button pointer"
-                type="button"
-              ></button>
-            </div>
-          </li>
-        </ul>
-      </section>
+      <button class="profile__add-button pointer" type="button"></button>
+    </section>
 
-      <footer class="footer">
-        <p class="footer__copyright">&#169; 2022 Mesto Russia</p>
-      </footer>
+    <section class="card" aria-label="Фотокарточки различных уголков планеты">
+      <ul class="card__list">
+        <li class="card__item">
+          <img class="card__item-image" src="./images/elbrus.png" alt="Эльбрус">
+          <div class="card__item-description">
+            <h2 class="card__item-title">Гора Эльбрус</h2>
+            <button class="card__item-like-button pointer" type="button"></button>
+          </div>
+        </li>
+        <li class="card__item">
+          <img class="card__item-image" src="./images/karachaevsk.png" alt="Карачаевск">
+          <div class="card__item-description">
+            <h2 class="card__item-title">Карачаевск</h2>
+            <button class="card__item-like-button pointer" type="button"></button>
+          </div>
+        </li>
+        <li class="card__item">
+          <img class="card__item-image" src="./images/dombai.png" alt="Домбай">
+          <div class="card__item-description">
+            <h2 class="card__item-title">Домбай</h2>
+            <button class="card__item-like-button pointer" type="button"></button>
+          </div>
+        </li>
+        <li class="card__item">
+          <img class="card__item-image" src="./images/elbrus.png" alt="Эльбрус">
+          <div class="card__item-description">
+            <h2 class="card__item-title">Гора Эльбрус</h2>
+            <button class="card__item-like-button pointer" type="button"></button>
+          </div>
+        </li>
+        <li class="card__item">
+          <img class="card__item-image" src="./images/elbrus.png" alt="Эльбрус">
+          <div class="card__item-description">
+            <h2 class="card__item-title">Гора Эльбрус</h2>
+            <button class="card__item-like-button pointer" type="button"></button>
+          </div>
+        </li>
+        <li class="card__item">
+          <img class="card__item-image" src="./images/elbrus.png" alt="Эльбрус">
+          <div class="card__item-description">
+            <h2 class="card__item-title">Гора Эльбрус</h2>
+            <button class="card__item-like-button pointer" type="button"></button>
+          </div>
+        </li>
+      </ul>
+    </section>
 
-      <div class="popup">
-        <div class="popup__form-container">
-          <button class="popup__close-button pointer" type="button"></button>
-          <form class="popup__form">
-            <h2 class="popup__form-title">Редактировать профиль</h2>
-            <fieldset class="form" id="form">
-              <label class="form__input-label">
-                <input class="form__input" id="name" type="text" />
-              </label>
-              <label class="form__input-label">
-                <input class="form__input" id="job" type="text" />
-              </label>
-            </fieldset>
-            <button class="popup__save-button pointer" type="submit">
-              Сохранить
-            </button>
-          </form>
-        </div>
+    <footer class="footer">
+      <p class="footer__copyright">&#169; 2022 Mesto Russia</p>
+    </footer>
+
+    <div class="popup">
+      <div class="popup__form-container">
+        <button class="popup__close-button pointer" type="button"></button>
+        <form class="popup__form">
+          <h2 class="popup__form-title">Редактировать профиль</h2>
+          <fieldset class="form" id="form">
+            <label class="form__input-label">
+              <input class="form__input" id="name" type="text">
+            </label>
+            <label class="form__input-label">
+              <input class="form__input" id="job" type="text">
+            </label>
+          </fieldset>
+          <button class="popup__save-button pointer" type="submit">
+            Сохранить
+          </button>
+        </form>
       </div>
     </div>
-    <script src="./pages/index.js"></script>
-  </body>
+  </div>
+
+  <script src="./pages/index.js"></script>
+</body>
+
 </html>
