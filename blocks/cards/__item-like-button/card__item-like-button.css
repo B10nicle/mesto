@@ -1,0 +1,16 @@
+.card__item-like-button {
+  margin: 0;
+  background-image: url("../../../images/like.svg");
+  background-repeat: no-repeat;
+  background-color: #ffffff;
+  background-size: contain;
+  margin-right: 20px;
+  height: 19px;
+  width: 22px;
+  padding: 0;
+  border: 0;
+}
+
+.card__item-like-button:hover {
+  opacity: 0.5;
+}

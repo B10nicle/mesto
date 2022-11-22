@@ -1,0 +1,15 @@
+.form__input {
+  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  text-overflow: ellipsis;
+  box-sizing: border-box;
+  white-space: nowrap;
+  font-style: normal;
+  line-height: 121%;
+  font-weight: 400;
+  color: #000000;
+  max-height: 27px;
+  overflow: hidden;
+  font-size: 14px;
+  width: 100%;
+}
