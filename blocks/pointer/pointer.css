@@ -1,4 +1,4 @@
 .pointer:hover {
-  cursor: url("../../../images/pointer.svg"), auto;
+  cursor: pointer;
   opacity: 0.6;
 }
