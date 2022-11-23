@@ -1,5 +1,5 @@
-.form__input-label {
+.popup__label {
   flex-direction: column;
-  min-height: 58px;
+  max-width: 358px;
   display: flex;
 }

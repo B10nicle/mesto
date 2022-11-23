@@ -1,7 +1,7 @@
 .profile__info {
   grid-template-columns: 1fr 24px;
   grid-column-gap: 18px;
-  grid-row-gap: 16px;
+  grid-row-gap: 6px;
   align-self: center;
   max-height: 73px;
   display: grid;
@@ -17,6 +17,5 @@
   .profile__info {
     grid-template-columns: 1fr 18px;
     grid-column-gap: 10px;
-    grid-row-gap: 14px;
   }
 }
