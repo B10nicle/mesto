@@ -5,9 +5,13 @@
   align-items: center;
   overflow: hidden;
   position: fixed;
-  display: none;
+  display: flex;
   height: 100%;
   width: 100%;
   left: 0;
   top: 0;
+
+  transition: visibility 0.7s, opacity 0.7s; 
+  visibility: hidden;
+  opacity: 0;
 }

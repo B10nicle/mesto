@@ -1,14 +1,12 @@
-.card__item-title {
-  width: calc(100% - 21px);
+.cards__item-title {
   text-overflow: ellipsis;
+  box-sizing: border-box;
   white-space: nowrap;
   font-style: normal;
-  padding-left: 21px;
   line-height: 29px;
-  overflow: hidden;
-  color: #000000;
-  max-width: 250px;
   font-weight: 900;
+  overflow: hidden;
+  max-width: 215px;
   font-size: 24px;
   margin: 0;
 }
