@@ -103,7 +103,7 @@ function openEditProfile() {
   jobInEditForm.value = profileJob.textContent;
 }
 
-function sendFormInEditProfile(e) {
+function submitEditProfileForm(e) {
   e.preventDefault();
   profileName.textContent = nameInEditForm.value;
   profileJob.textContent = jobInEditForm.value;
@@ -111,7 +111,7 @@ function sendFormInEditProfile(e) {
 }
 
 profileEditButton.addEventListener("click", openEditProfile);
-saveEditProfileForm.addEventListener("submit", sendFormInEditProfile);
+saveEditProfileForm.addEventListener("submit", submitEditProfileForm);
 
 /* add card */
 function openAddCard() {
@@ -119,7 +119,7 @@ function openAddCard() {
   openPopup(popupAddCard);
 }
 
-function sendFormInAddCard(e) {
+function submitAddCardForm(e) {
   e.preventDefault();
   renderCard({
     name: imageNameInAddCard.value,
@@ -129,4 +129,4 @@ function sendFormInAddCard(e) {
 }
 
 profileAddButton.addEventListener("click", openAddCard);
-saveAddCardForm.addEventListener("submit", sendFormInAddCard);
+saveAddCardForm.addEventListener("submit", submitAddCardForm);
