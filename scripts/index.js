@@ -79,7 +79,7 @@ const createCard = (values) => {
     .addEventListener("click", (e) =>
       e.target.closest(".cards__item").remove()
     );
-
+    
   cardsItemImage.addEventListener("click", () => {
     openPopup(popupImageView);
     imageView.setAttribute("src", cardsItemImage.getAttribute("src"));
