@@ -125,6 +125,7 @@ function submitEditProfileForm(e) {
 
 profileEditButton.addEventListener("click", openEditProfile);
 saveEditProfileForm.addEventListener("submit", submitEditProfileForm);
+saveCardButton.addEventListener("click", submitAddCardForm);
 
 /* add card */
 function openAddCard() {
@@ -162,4 +163,3 @@ profileAddButton.addEventListener("click", () => {
   }
   openPopup(popupAddCard);
 });
-

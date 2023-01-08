@@ -14,8 +14,8 @@ const showInputError = (
   errorClass
 ) => {
   const inputErrorId = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.add(inputErrorClass);
   inputErrorId.classList.add(errorClass);
+  inputElement.classList.add(inputErrorClass);
   inputErrorId.textContent = inputElement.validationMessage;
 };
 
@@ -26,8 +26,8 @@ const hideInputError = (
   errorClass
 ) => {
   const inputErrorId = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.remove(inputErrorClass);
   inputErrorId.classList.remove(errorClass);
+  inputElement.classList.remove(inputErrorClass);
   inputErrorId.textContent = "";
 };
 
@@ -88,8 +88,8 @@ const enableValidation = ({
 }) => {
   const formSelectorList = Array.from(document.querySelectorAll(formSelector));
   formSelectorList.forEach((formElement) => {
-    formElement.addEventListener("submit", (evt) => {
-      evt.preventDefault();
+    formElement.addEventListener("submit", (e) => {
+      e.preventDefault();
     });
     setEventListeners(
       formElement,
