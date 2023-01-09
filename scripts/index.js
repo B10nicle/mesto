@@ -91,10 +91,10 @@ const createCard = (values) => {
     );
 
   cardItemImage.addEventListener("click", () => {
-    openPopup(popupImageView);
     imageView.setAttribute("src", cardItemImage.getAttribute("src"));
     imageView.setAttribute("alt", values.name);
     imageTitle.textContent = values.name;
+    openPopup(popupImageView);
   });
 
   return cardItem;
