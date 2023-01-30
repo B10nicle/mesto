@@ -23,32 +23,30 @@ export default class FormValidator {
       : this._activateSubmitButton();
   };
 
-  hideInputError = (element) => {
-    const errorId = this._findErrorId;
-    errorId.textContent = "";
-    element.classList.remove(this._settings.inputErrorClass);
-    errorId.classList.remove(this._settings.errorClass);
-  };
-
   _checkInputValidity = (element) => {
     !element.validity.valid
       ? this._showInputError(element)
       : this._hideInputError(element);
   };
 
-  _findErrorId = (element) => {
-    this._formElement.querySelector(`.${element.id}-error`);
-  };
-
   _showInputError = (element) => {
-    const errorId = this._findErrorId;
-    errorId.textContent = element.validationMessage;
+    const errorId = this._formElement.querySelector(`.${element.id}-error`);
     element.classList.add(this._settings.inputErrorClass);
     errorId.classList.add(this._settings.errorClass);
+    errorId.textContent = element.validationMessage;
+  };
+
+  _hideInputError = (element) => {
+    const errorId = this._formElement.querySelector(`.${element.id}-error`);
+    element.classList.remove(this._settings.inputErrorClass);
+    errorId.classList.remove(this._settings.errorClass);
+    errorId.textContent = "";
   };
 
   _hasInvalidInput = () => {
-    this._inputSelectorList.some((element) => !element.validity.valid);
+    return this._inputSelectorList.some((element) => {
+      return !element.validity.valid;
+    });
   };
 
   _disableSubmitButton = () => {

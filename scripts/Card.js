@@ -12,22 +12,21 @@ export default class Card {
   }
 
   _getTemplate() {
-    const cardItem = document
+    return document
       .querySelector(this._cardTemplate)
       .content.querySelector(".cards__item")
-      .cloneNode(true).children[0];
-    return cardItem;
+      .cloneNode(true);
   }
 
   _setEventListener() {
     this._cardItem
       .querySelector(".cards__item-like")
       .addEventListener("click", (e) =>
-        e.target.classList.toggle("cards__item-like_type_active")
+        e.target.classList.toggle("cards__item-like_active")
       );
 
-    this._cardElement
-      .querySelector(".cards__item-delete")
+    this._cardItem
+      .querySelector(".cards__delete")
       .addEventListener("click", (e) =>
         e.target.closest(".cards__item").remove()
       );

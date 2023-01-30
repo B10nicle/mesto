@@ -19,7 +19,7 @@
 
 /* cards */
 @import url(../blocks/cards/cards.css);
-@import url(../blocks/cards/__item-delete/cards__item-delete.css);
+@import url(../blocks/cards/delete/cards__delete.css);
 @import url(../blocks/cards/__item-description/cards__item-description.css);
 @import url(../blocks/cards/__item-image/cards__item-image.css);
 @import url(../blocks/cards/__item-like/cards__item-like.css);

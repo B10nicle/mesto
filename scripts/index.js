@@ -1,6 +1,6 @@
-import { initialCards } from "./initialCards";
-import FormValidator from "./FormValidator";
-import Card from "./Card";
+import { initialCards } from "./initialCards.js";
+import FormValidator from "./FormValidator.js";
+import Card from "./Card.js";
 
 const settings = {
   formSelector: ".popup__form",
@@ -55,15 +55,15 @@ const popupFormInAddCardValidation = new FormValidator(
 popupFormInAddCardValidation.enableValidation();
 //////
 
-/* initialize initial cards */
-initialCards.forEach((card) => renderCard(card));
-//////
-
 /* render a new card */
 const renderCard = (data) => {
-  const card = new Card(data, "#template");
+  const card = new Card(data, "template");
   cardsList.prepend(card.generate());
 };
+//////
+
+/* initialize initial cards */
+initialCards.forEach((card) => renderCard(card));
 //////
 
 /* open popup */
@@ -110,8 +110,6 @@ popupFormInAddCard.addEventListener("submit", (e) => {
 profileAddButton.addEventListener("click", () => {
   popupFormInAddCard.reset();
   popupFormInAddCardValidation.toggleSubmitButtonSelector();
-  popupFormInAddCardValidation.hideInputError(imageLinkInAddCard);
-  popupFormInAddCardValidation.hideInputError(imageNameInAddCard);
   openPopup(popupAddCard);
 });
 //////
