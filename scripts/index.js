@@ -1,8 +1,20 @@
+import { initialCards } from "./initialCards";
+import FormValidator from "./FormValidator";
+import Card from "./Card";
+
+const settings = {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__save-button",
+  inactiveButtonClass: "popup__save-button_inactive",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__input-error_active",
+};
+
 /* popups */
 const popups = document.querySelectorAll(".popup");
 const popupEditProfile = document.querySelector(".popup_type_edit-profile");
 const popupAddCard = document.querySelector(".popup_type_add-card");
-const popupImageView = document.querySelector(".popup_type_image-view");
 
 /* forms */
 const popupFormInEditProfile = popupEditProfile.querySelector(".popup__form");
@@ -11,7 +23,6 @@ const popupFormInAddCard = popupAddCard.querySelector(".popup__form");
 /* buttons */
 const profileAddButton = document.querySelector(".profile__add-button");
 const profileEditButton = document.querySelector(".profile__edit-button");
-const saveCardButton = popupFormInAddCard.querySelector(".popup__save-button");
 
 /* fields */
 const profileName = document.querySelector(".profile__name");
@@ -25,14 +36,35 @@ const jobInEditForm = document.querySelector(".popup__input_job");
 const imageNameInAddCard = document.querySelector(".popup__input_image-name");
 const imageLinkInAddCard = document.querySelector(".popup__input_image-link");
 
-/* open image view */
-const imageView = document.querySelector(".popup__image");
-const imageTitle = document.querySelector(".popup__image-title");
-
 /* template */
-const template = document.querySelector(".template").content;
 const cardsList = document.querySelector(".cards__list");
-////////////
+
+/* enable validation in edit profile */
+const popupFormInEditProfileValidation = new FormValidator(
+  settings,
+  popupFormInEditProfile
+);
+popupFormInEditProfileValidation.enableValidation();
+//////
+
+/* enable validation in add card */
+const popupFormInAddCardValidation = new FormValidator(
+  settings,
+  popupFormInAddCard
+);
+popupFormInAddCardValidation.enableValidation();
+//////
+
+/* initialize initial cards */
+initialCards.forEach((card) => renderCard(card));
+//////
+
+/* render a new card */
+const renderCard = (data) => {
+  const card = new Card(data, "#template");
+  cardsList.prepend(card.generate());
+};
+//////
 
 /* open popup */
 const openPopup = (popup) => {
@@ -41,7 +73,6 @@ const openPopup = (popup) => {
 };
 //////
 
-
 /* close popup */
 const closePopup = (popup) => {
   popup.classList.remove("popup_opened");
@@ -49,121 +80,59 @@ const closePopup = (popup) => {
 };
 //////
 
-
 /** close popup when esc is pressed */
 const closePopupEsc = (e) => {
   if (e.key === "Escape") closePopup(document.querySelector(".popup_opened"));
 };
 //////
 
-
-/** close popup when overlay is pressed or cross button */
-popups.forEach((popup) => {
-  popup.addEventListener("mousedown", (e) => {
-    if (
-      e.target.classList.contains("popup__close-button") ||
-      e.target.classList.contains("popup_opened")
-    )
-      closePopup(popup);
-  });
-});
-//////
-
-
-/* create a new card */
-const createCard = (values) => {
-  const cardItem = template.querySelector(".cards__item").cloneNode(true);
-  const cardItemImage = cardItem.querySelector(".cards__item-image");
-  cardItem.querySelector(".cards__item-title").textContent = values.name;
-  cardItemImage.setAttribute("src", values.link);
-  cardItemImage.setAttribute("alt", values.name);
-
-  cardItem
-    .querySelector(".cards__item-like")
-    .addEventListener("click", (e) =>
-      e.target.classList.toggle("cards__item-like_active")
-    );
-
-  cardItem
-    .querySelector(".cards__item-delete")
-    .addEventListener("click", (e) =>
-      e.target.closest(".cards__item").remove()
-    );
-
-  cardItemImage.addEventListener("click", () => {
-    imageView.setAttribute("src", cardItemImage.getAttribute("src"));
-    imageView.setAttribute("alt", values.name);
-    imageTitle.textContent = values.name;
-    openPopup(popupImageView);
-  });
-
-  return cardItem;
-};
-//////
-
-
-/* render and initialize initial cards */
-const renderCard = (values, cards = cardsList) => {
-  cards.prepend(createCard(values));
-};
-initialCards.forEach((card) => renderCard(card));
-//////
-
-
-/* edit profile */
-function openEditProfile() {
-  openPopup(popupEditProfile);
-  nameInEditForm.value = profileName.textContent;
-  jobInEditForm.value = profileJob.textContent;
-}
-profileEditButton.addEventListener("click", openEditProfile);
-//////
-
-
 /* submit edit profile form */
-function submitEditProfileForm(e) {
+popupFormInEditProfile.addEventListener("submit", (e) => {
   e.preventDefault();
   profileName.textContent = nameInEditForm.value;
   profileJob.textContent = jobInEditForm.value;
   closePopup(popupEditProfile);
-}
-popupFormInEditProfile.addEventListener("submit", submitEditProfileForm);
+});
 //////
 
-
 /* submit add card form */
-function submitAddCardForm(e) {
+popupFormInAddCard.addEventListener("submit", (e) => {
   e.preventDefault();
   renderCard({
     name: imageNameInAddCard.value,
     link: imageLinkInAddCard.value,
   });
   closePopup(popupAddCard);
-}
-popupFormInAddCard.addEventListener("submit", submitAddCardForm);
+});
 //////
 
-
-/* add new card */
+/** add button events */
 profileAddButton.addEventListener("click", () => {
   popupFormInAddCard.reset();
-  hideInputError(
-    popupAddCard,
-    imageNameInAddCard,
-    settings.inputErrorClass,
-    settings.errorClass
-  );
-  hideInputError(
-    popupAddCard,
-    imageLinkInAddCard,
-    settings.inputErrorClass,
-    settings.errorClass
-  );
-
-  if (!saveCardButton.classList.contains(settings.inactiveButtonClass)) {
-    saveCardButton.classList.add(settings.inactiveButtonClass);
-    saveCardButton.setAttribute("disabled", "");
-  }
+  popupFormInAddCardValidation.toggleSubmitButtonSelector();
+  popupFormInAddCardValidation.hideInputError(imageLinkInAddCard);
+  popupFormInAddCardValidation.hideInputError(imageNameInAddCard);
   openPopup(popupAddCard);
 });
 //////
+
+/** edit button events */
+profileEditButton.addEventListener("click", () => {
+  nameInEditForm.value = profileName.textContent;
+  nameInEditForm.dispatchEvent(new Event("input"));
+  jobInEditForm.value = profileJob.textContent;
+  jobInEditForm.dispatchEvent(new Event("input"));
+  openPopup(popupEditProfile);
+});
+//////
+
+/** close button events */
+popups.forEach((popup) => {
+  popup.addEventListener("mousedown", (e) => {
+    if (e.target.classList.contains("popup__close-button")) closePopup(popup);
+    if (e.target.classList.contains("popup_opened")) closePopup(popup);
+  });
+});
+//////
+
+export { openPopup };
