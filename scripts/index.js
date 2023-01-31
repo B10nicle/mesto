@@ -109,7 +109,7 @@ popupFormInAddCard.addEventListener("submit", (e) => {
 /** add button events */
 profileAddButton.addEventListener("click", () => {
   popupFormInAddCard.reset();
-  popupFormInAddCardValidation.toggleSubmitButtonSelector();
+  popupFormInAddCardValidation.toggleSubmitButtonState();
   openPopup(popupAddCard);
 });
 //////
