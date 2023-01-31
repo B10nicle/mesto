@@ -55,10 +55,15 @@ const popupFormInAddCardValidation = new FormValidator(
 popupFormInAddCardValidation.enableValidation();
 //////
 
+/* create a new card */
+function createCard(data) {
+  return new Card(data, "template").generate();
+}
+//////
+
 /* render a new card */
 const renderCard = (data) => {
-  const card = new Card(data, "template");
-  cardsList.prepend(card.generate());
+  cardsList.prepend(createCard(data));
 };
 //////
 
