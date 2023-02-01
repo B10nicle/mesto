@@ -55,8 +55,8 @@ function handleCardClick(name, link) {
 
 /* create a new instance of UserInfo class */
 const userInfo = new UserInfo({
-  nameSelector: profileName,
-  jobSelector: profileJob,
+  name: profileName,
+  job: profileJob,
 });
 
 /* create a new instance of PopupWithForm class for image view */

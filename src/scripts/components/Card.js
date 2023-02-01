@@ -44,6 +44,7 @@ export default class Card {
   }
 
   _removeCard(e) {
-    e.target.closest(".cards__item").remove();
+    this._cardItem.remove();
+    this._cardItem = null;
   }
 }
