@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="./images/favicon.ico">
   <title>Mesto</title>
 </head>
 
@@ -47,15 +46,15 @@
     <div class="popup__container">
       <button class="popup__close-button pointer" type="button"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="popup__form" name="editForm" novalidate>
+      <form class="popup__form" name="popup-form-profile" novalidate>
         <label class="popup__label">
-          <input id="profileName-input" class="popup__input popup__input_name" type="text" placeholder="Имя"
-            minlength="2" maxlength="40" required>
+          <input class="popup__input popup__input_name" type="text" placeholder="Имя"
+            minlength="2" maxlength="40" name="name" id="profileName-input" required>
           <span class="popup__input-error profileName-input-error"></span>
         </label>
         <label class="popup__label">
-          <input id="profileJob-input" class="popup__input popup__input_job" type="text" placeholder="Вид деятельности"
-            minlength="2" maxlength="200" required>
+          <input class="popup__input popup__input_job" type="text" placeholder="Вид деятельности"
+            minlength="2" maxlength="200" name="job" id="profileJob-input" required>
           <span class="popup__input-error profileJob-input-error"></span>
         </label>
         <button class="popup__save-button pointer" type="submit">Сохранить</button>
@@ -67,15 +66,15 @@
     <div class="popup__container">
       <button class="popup__close-button pointer" type="button"></button>
       <h2 class="popup__title">Новое место</h2>
-      <form class="popup__form" name="addForm">
+      <form class="popup__form" name="popup-form-profile" novalidate>
         <label class="popup__label">
           <input id="imageName-input" class="popup__input popup__input_image-name" type="text" placeholder="Название"
-            minlength="2" maxlength="30" required>
+            minlength="2" maxlength="30" name="name" id="imageName-input" required>
           <span class="popup__input-error imageName-input-error"></span>
         </label>
         <label class="popup__label">
           <input id="imageLink-input" class="popup__input popup__input_image-link" type="url"
-            placeholder="Ссылка на картинку" required>
+            placeholder="Ссылка на картинку" name="link" id="imageLink-input" required>
           <span class="popup__input-error imageLink-input-error"></span>
         </label>
         <button class="popup__save-button pointer" type="submit">Создать</button>
