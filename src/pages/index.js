@@ -1,11 +1,11 @@
-import PopupWithImage from "../components/PopupWithImage.js";
-import FormValidator from "../components/FormValidator.js";
-import PopupWithForm from "../components/PopupWithForm.js";
-import { initialCards } from "../utils/initialCards";
-import UserInfo from "../components/UserInfo.js";
-import Section from "../components/Section.js";
-import Card from "../components/Card.js";
-import "../../pages/index.css";
+import PopupWithImage from "../scripts/components/PopupWithImage.js";
+import FormValidator from "../scripts/components/FormValidator.js";
+import PopupWithForm from "../scripts/components/PopupWithForm.js";
+import { initialCards } from "../scripts/utils/initialCards";
+import UserInfo from "../scripts/components/UserInfo.js";
+import Section from "../scripts/components/Section.js";
+import Card from "../scripts/components/Card.js";
+import "../pages/index.css";
 
 import {
   popupFormInEditProfile,
@@ -18,7 +18,7 @@ import {
   profileName,
   profileJob,
   settings,
-} from "../utils/constants.js";
+} from "../scripts/utils/constants.js";
 
 /* enable validation in edit profile */
 const popupFormInEditProfileValidation = new FormValidator(
