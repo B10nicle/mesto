@@ -16,6 +16,7 @@ module.exports = {
     compress: true,
     port: 8080,
     open: true,
+    watchFiles: ["src/*.html"],
   },
   module: {
     rules: [
