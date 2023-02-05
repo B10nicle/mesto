@@ -43,7 +43,7 @@ export default class Card {
     e.target.classList.toggle("cards__item-like_active");
   }
 
-  _removeCard(e) {
+  _removeCard() {
     this._cardItem.remove();
     this._cardItem = null;
   }

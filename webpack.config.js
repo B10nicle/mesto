@@ -1,10 +1,10 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const {CleanWebpackPlugin} = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
 module.exports = {
-  entry: { main: "./src/pages/index.js" },
+  entry: {main: "./src/pages/index.js"},
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "main.js",
@@ -35,7 +35,7 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           {
             loader: "css-loader",
-            options: { importLoaders: 1 },
+            options: {importLoaders: 1},
           },
           "postcss-loader",
         ],

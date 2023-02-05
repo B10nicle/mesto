@@ -1,7 +1,7 @@
 import PopupWithImage from "../scripts/components/PopupWithImage.js";
 import FormValidator from "../scripts/components/FormValidator.js";
 import PopupWithForm from "../scripts/components/PopupWithForm.js";
-import { initialCards } from "../scripts/utils/initialCards";
+import {initialCards} from "../scripts/utils/initialCards";
 import UserInfo from "../scripts/components/UserInfo.js";
 import Section from "../scripts/components/Section.js";
 import Card from "../scripts/components/Card.js";
