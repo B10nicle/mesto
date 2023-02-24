@@ -1,9 +1,8 @@
 export default class UserInfo {
-  constructor({name, about, avatar, id}) {
+  constructor({name, about, avatar}) {
     this._name = name;
     this._about = about;
     this._avatar = avatar;
-    this._id = id;
   }
 
   getUserInfo() {
@@ -14,7 +13,7 @@ export default class UserInfo {
     this.name = data.name;
     this.about = data.about;
     this.avatar = data.avatar;
-    this._id = data.id;
+    this._id = data._id;
     if (data.name) this._name.textContent = this.name;
     if (data.about) this._about.textContent = this.about;
     if (data.avatar) {
