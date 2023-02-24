@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" href="<%=require('./images/favicon.ico')%>">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto</title>
 </head>
@@ -14,7 +15,7 @@
 </header>
 <main class="main">
   <section class="profile">
-    <img class="profile__avatar" src="<%=require('./images/avatar.png')%>" alt="аватар пользователя">
+    <button class="profile__avatar-edit-button" type="button"><img class="profile__avatar" src="<%=require('./images/avatar.png')%>" alt="аватар пользователя"></button>
     <div class="profile__info">
       <h1 class="profile__name">Жак-Ив Кусто</h1>
       <button class="profile__edit-button pointer" type="button"></button>
@@ -28,7 +29,7 @@
   </section>
 </main>
 <footer class="footer">
-  <p class="footer__copyright">&#169; 2022 Mesto Russia</p>
+  <p class="footer__copyright">&#169; 2023 Mesto Russia</p>
 </footer>
 <!-- template -->
 <template class="template">
@@ -37,7 +38,10 @@
     <img class="cards__item-image" src="#" alt="">
     <div class="cards__item-description">
       <h2 class="cards__item-title"></h2>
-      <button class="cards__item-like pointer" type="button"></button>
+      <div class="cards__item-likes">
+        <button class="cards__item-like pointer" type="button"></button>
+        <p class="cards__item-number-likes"></p>
+      </div>
     </div>
   </li>
 </template>
@@ -54,7 +58,7 @@
       </label>
       <label class="popup__label">
         <input class="popup__input popup__input_job" type="text" placeholder="Вид деятельности"
-               minlength="2" maxlength="200" name="job" id="profileJob-input" required>
+               minlength="2" maxlength="200" name="about" id="profileJob-input" required>
         <span class="popup__input-error profileJob-input-error"></span>
       </label>
       <button class="popup__save-button pointer" type="submit">Сохранить</button>
@@ -78,6 +82,28 @@
         <span class="popup__input-error imageLink-input-error"></span>
       </label>
       <button class="popup__save-button pointer" type="submit">Создать</button>
+    </form>
+  </div>
+</div>
+<!-- delete card -->
+<div class="popup popup_type_delete-card">
+  <div class="popup__container">
+    <button class="popup__close-button pointer" type="button"></button>
+    <h2 class="popup__title">Вы уверены?</h2>
+    <button type="submit" class="popup__save-button popup__save-button_place_delete-card">Да</button>
+  </div>
+</div>
+<!-- update avatar -->
+<div class="popup popup_type_update-avatar">
+  <div class="popup__container">
+    <button class="popup__close-button pointer" type="button"></button>
+    <h2 class="popup__title">Обновить аватар</h2>
+    <form name="popup-form-profile" class="popup__form" novalidate>
+      <label class="popup__label">
+        <input id="avatar-input" name="avatar" type="url" placeholder="Ссылка на картинку" class="popup__input popup__input_type_avatar" required>
+        <span class="popup__input-error avatar-input-error"></span>
+      </label>
+      <button type="submit" class="popup__save-button popup__save-button_place_update-avatar">Сохранить</button>
     </form>
   </div>
 </div>
