@@ -39,6 +39,10 @@ export default class Card {
       .cloneNode(true);
   }
 
+  get isLike() {
+    return this._isLike;
+  }
+
   numberOfLikes(newLikes) {
     this._like = newLikes;
     this._likeItem.textContent = this._like.length;

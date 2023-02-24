@@ -1,100 +1,69 @@
 export default class Api {
-  constructor(cohort, token) {
-    this._cohort = cohort
-    this._token = token
+  constructor(options) {
+    this._baseUrl = options.baseUrl
+    this._headers = options.headers
   }
 
   getCard() {
-    return fetch(`https://mesto.nomoreparties.co/v1/${this._cohort}/cards`, {
+    return fetch(`${this._baseUrl}/cards`, {
       method: 'GET',
-      headers: {
-        authorization: this._token,
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(result => result.json())
+      headers: this._headers
+    }).then(this._checkResponse);
   }
 
   setCard({name, link}) {
-    return fetch(`https://mesto.nomoreparties.co/v1/${this._cohort}/cards`, {
+    return fetch(`${this._baseUrl}/cards`, {
       method: 'POST',
-      headers: {
-        authorization: this._token,
-        'Content-Type': 'application/json'
-      },
+      headers: this._headers,
       body: JSON.stringify({
         name,
         link
       })
-    })
-      .then(this._checkResponse);
+    }).then(this._checkResponse);
   }
 
   deleteCard(_id) {
-    return fetch(`https://mesto.nomoreparties.co/v1/${this._cohort}/cards/${_id} `, {
+    return fetch(`${this._baseUrl}/cards/${_id}`, {
       method: 'DELETE',
-      headers: {
-        authorization: this._token,
-        'Content-Type': 'application/json'
-      },
-    })
-      .then(this._checkResponse);
+      headers: this._headers
+    }).then(this._checkResponse);
   }
 
   getUserInfo() {
-    return fetch(`https://mesto.nomoreparties.co/v1/${this._cohort}/users/me`, {
+    return fetch(`${this._baseUrl}/users/me`, {
       method: 'GET',
-      headers: {
-        authorization: this._token,
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(res => res.json())
+      headers: this._headers
+    }).then(this._checkResponse);
   }
 
   setUserInfo(forms) {
-    return fetch(`https://mesto.nomoreparties.co/v1/${this._cohort}/users/me`, {
+    return fetch(`${this._baseUrl}/users/me`, {
       method: 'PATCH',
-      headers: {
-        authorization: this._token,
-        'Content-Type': 'application/json'
-      },
+      headers: this._headers,
       body: JSON.stringify(forms)
     }).then(this._checkResponse);
   }
 
   updateAvatar(data) {
-    return fetch(`https://mesto.nomoreparties.co/v1/${this._cohort}/users/me/avatar`, {
+    return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: 'PATCH',
-      headers: {
-        authorization: this._token,
-        'Content-Type': 'application/json'
-      },
+      headers: this._headers,
       body: JSON.stringify(data)
-    })
-      .then(this._checkResponse);
+    }).then(this._checkResponse);
   }
 
   setLike(_id) {
-    return fetch(`https://mesto.nomoreparties.co/v1/${this._cohort}/cards/${_id}/likes`, {
+    return fetch(`${this._baseUrl}/cards/${_id}/likes`, {
       method: 'PUT',
-      headers: {
-        authorization: this._token,
-        'Content-Type': 'application/json'
-      },
-    })
-      .then(this._checkResponse);
+      headers: this._headers,
+    }).then(this._checkResponse);
   }
 
   deleteLike(_id) {
-    return fetch(`https://mesto.nomoreparties.co/v1/${this._cohort}/cards/${_id}/likes`, {
+    return fetch(`${this._baseUrl}/cards/${_id}/likes`, {
       method: 'DELETE',
-      headers: {
-        authorization: this._token,
-        'Content-Type': 'application/json'
-      },
-    })
-      .then(this._checkResponse);
+      headers: this._headers,
+    }).then(this._checkResponse);
   }
 
   _checkResponse(res) {

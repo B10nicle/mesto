@@ -23,15 +23,19 @@ import {
   popupAddCard,
   buttonEdit,
   buttonAdd,
-  settings,
-  cohort,
-  token,
+  settings
 } from "../scripts/utils/constants.js";
 
-const api = new Api(cohort, token);
+const api = new Api({
+  baseUrl: "https://mesto.nomoreparties.co/v1/cohort-60",
+  headers: {
+    authorization: "1f43ff04-d4d6-48bf-b04f-ab223f18899b",
+    "Content-Type": "application/json",
+  },
+})
 
 function handleLikeCard(card) {
-  if (card._isLike) {
+  if (card.isLike) {
     api.deleteLike(card._id)
       .then(res => {
         card.numberOfLikes(res.likes);
@@ -90,13 +94,12 @@ const userInfo = new UserInfo({
 const popupAddElementForm = new PopupWithForm(popupAddCard, data => {
   api.setCard(data)
     .then((res) => {
-      const cardNew = section.renderItems(res);
-      section.addItem(cardNew);
+      section.addItem(res)
       popupAddElementForm.close();
     })
-    .catch(err => console.log(`Ошибка.....: ${err}`))
+    .catch(err => console.log(`Ошибка: ${err}`))
     .finally(() => {
-      popupAddElementForm.submitButtonInactive();
+      popupAddElementForm.stopLoading();
     })
 });
 
@@ -108,7 +111,7 @@ const popupProfileWithForm = new PopupWithForm(popupEditProfile, data => {
     })
     .catch(err => console.log(`Ошибка: ${err}`))
     .finally(() => {
-      popupProfileWithForm.submitButtonInactive();
+      popupProfileWithForm.stopLoading();
     })
 })
 
@@ -117,12 +120,12 @@ const popupWithImage = new PopupWithImage(popupImageView);
 const popupWithAvatar = new PopupWithForm(popupUpdateAvatar, data => {
   api.updateAvatar(data)
     .then(() => {
-      userInfo.setAvatar(data);
+      userInfo.setUserInfo(data);
       popupWithAvatar.close();
     })
     .catch(err => console.log(`Ошибка: ${err}`))
     .finally(() => {
-      popupWithAvatar.submitButtonInactive();
+      popupWithAvatar.stopLoading();
     })
 })
 
@@ -141,11 +144,7 @@ Promise.all([
 ])
   .then(res => {
     userInfo.setUserInfo(res[0]);
-    section.clear();
-    res[1].forEach(data => {
-      const cardNew = section.renderItems(data);
-      section.addItem(cardNew);
-    })
+    section.renderItems(res[1]);
   })
   .catch(err => console.error(err));
 
